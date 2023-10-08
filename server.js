@@ -295,6 +295,124 @@ server.get('/user/:id/:email', function (req, res) {
 });
 */
 //id is optiona and email id required
+const students = [
+  {
+    id: 1,
+    name: 'user 1',
+    email: 'user1@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 90,
+  },
+  {
+    id: 2,
+    name: 'user 2',
+    email: 'user2@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 200,
+  },
+  {
+    id: 3,
+    name: 'user 3',
+    email: 'user3@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 250,
+  },
+  {
+    id: 4,
+    name: 'user 4',
+    email: 'user4@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 400,
+  },
+  {
+    id: 5,
+    name: 'user 5',
+    email: 'user5@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 80,
+  },
+  {
+    id: 6,
+    name: 'user 6',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 7,
+    name: 'user 7',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 8,
+    name: 'user 8',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 9,
+    name: 'user 9',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 10,
+    name: 'user 10',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 11,
+    name: 'user 11',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 12,
+    name: 'user 12',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 13,
+    name: 'user 13',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 14,
+    name: 'user 14',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+  {
+    id: 15,
+    name: 'user 15',
+    email: 'user6@gmail.com',
+    totalMarks: 500,
+    obtainMarks: 70,
+  },
+];
+const user = {
+  firstName: 'Sajid',
+  lastName: 'Ali',
+  address: 'ali garden, Faisalabad',
+  mobile: '03217865510',
+};
+//           0 1 2 3 4
+//const arr = [1,2,3,4,5,6,7,8,9,10];
+//length = 9
+// 9/2 = 4=0-4
+
 server.get('/user/:id', function (req, res) {
   //here we are getting parameters value in string
   const studentId = req.params;
@@ -312,23 +430,51 @@ server.get('/user/:id', function (req, res) {
   //for(/*start point/ initilization */, /*condition/end point */, /*step/skip */)
   // odd 1,3,5,7,9
   // even 2,4,6,8,10
-  //            0  1   2   3   4   5
-  const arr = [10, 20, 30, 40, 50];
+  //            0  1   2   3   4
+
+  //arr.push(user);
   //  console.log('arry elements length');
-
-  for (let i = 0; i < arr.length; i = i + 2) {
-    console.log(arr[i]);
+  // array data structure.
+  // array is used to store data in sequece or in stack
+  const failedStudents = [];
+  const passedStudents = [];
+  const loopEnd = students.length;
+  const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  const even = [];
+  const odd = [];
+  for (let i = 0; i < arr.length; i++) {
+    const value = arr[i];
+    //% percent sign
+    // % modules operator
+    // % remainder operator
+    if (value % 2 === 0) {
+      even.push(value);
+    }
+    if (value % 2 !== 0) {
+      odd.push(value);
+    }
+    /*
+    const student = students[i];
+    if (student.obtainMarks < 100) {
+      failedStudents.push(student);
+    }
+    if (student.obtainMarks >= 100) {
+      passedStudents.push(student);
+    }
+    */
   }
 
-  if (user !== undefined) {
-    res.send({
-      users: user,
-    });
-  } else {
-    res.send({
-      users: 'User not found',
-    });
-  }
+  // newArr.push(1);
+  // newArr.push(2);
+  // newArr.push('Sajid');
+  // newArr.push('faizan');
+
+  res.send({
+    result: {
+      even,
+      odd,
+    },
+  });
 });
 
 function getUserById(user) {

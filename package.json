@@ -2,9 +2,9 @@
   "name": "rest-api",
   "version": "1.0.0",
   "description": "I am learning rest api in nodejs using express",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node --watch index.js"
+    "start": "node --watch server.js"
   },
   "author": "Sajid",
   "license": "ISC",
