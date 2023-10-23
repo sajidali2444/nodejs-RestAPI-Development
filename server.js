@@ -397,17 +397,12 @@ const students = [
   {
     id: 15,
     name: 'user 15',
-    email: 'user6@gmail.com',
+    email: 'user7@gmail.com',
     totalMarks: 500,
     obtainMarks: 70,
   },
 ];
-const user = {
-  firstName: 'Sajid',
-  lastName: 'Ali',
-  address: 'ali garden, Faisalabad',
-  mobile: '03217865510',
-};
+
 //           0 1 2 3 4
 //const arr = [1,2,3,4,5,6,7,8,9,10];
 //length = 9
@@ -419,7 +414,7 @@ server.get('/user/:id', function (req, res) {
   console.log(studentId);
   // to convert string to number
   // Number function
-  //Number.parseInt() or parsetInt()
+  // Number.parseInt() or parsetInt()
   // short +, '2' +'2' =2
   //console.log('student id => ', studentId.id);
   const users = usersData();
@@ -436,6 +431,7 @@ server.get('/user/:id', function (req, res) {
   //  console.log('arry elements length');
   // array data structure.
   // array is used to store data in sequece or in stack
+  /*
   const failedStudents = [];
   const passedStudents = [];
   const loopEnd = students.length;
@@ -461,20 +457,30 @@ server.get('/user/:id', function (req, res) {
     if (student.obtainMarks >= 100) {
       passedStudents.push(student);
     }
-    */
+    
   }
-
-  // newArr.push(1);
-  // newArr.push(2);
-  // newArr.push('Sajid');
-  // newArr.push('faizan');
-
-  res.send({
-    result: {
-      even,
-      odd,
-    },
+  */
+  // to find single element in array then use find method
+  // find method of array
+  // find method will return element if condition match or undefined
+  // find method will return on first condition match
+  /*
+  const failedStudent = students.find((item) => {
+    if (item.obtainMarks < 90) {
+      return item;
+    }
   });
+  */
+
+  //const failedStudent = students.find((item) => item.obtainMarks > 500);
+  const failedStudent = students.filter((item) => {
+    //if (item.obtainMarks <= 70 && item.email === 'user7@gmail.com') return item;
+    if (item.obtainMarks <= 70 || item.email === 'user7@gmail.com') return item;
+  });
+  console.log('find method result ');
+  console.log(failedStudent);
+
+  res.send({ result: failedStudent });
 });
 
 function getUserById(user) {
