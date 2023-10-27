@@ -403,6 +403,31 @@ const students = [
   },
 ];
 
+//find array method will return only one item,
+//find array method will return first matching item else will return undefined
+
+const sabzi = ['🍅', '🍄', '🥦', '🥒', '🍅', '🌽', '🥕', '🥑', '🍅', '🍄'];
+const tamater = sabzi.find((item) => item === '🍅');
+console.log('find finds tamaters');
+console.log(tamater);
+//filter array method will return all matching items in new array
+const tamaters = sabzi.filter((item) => item === '🍅');
+console.log('filter finds tamaters');
+console.log(tamaters);
+
+//map array method will return new array
+const newSabziArray = sabzi.map((item) => (item === '🍅' ? item : null));
+console.log('map array methods transform array in new array');
+console.log(newSabziArray);
+
+//students change name
+const newStudents = students.map((item) => ({
+  ...item,
+  //name: 'Name new',
+  fullName: 'Full Name',
+}));
+
+console.log(newStudents);
 //           0 1 2 3 4
 //const arr = [1,2,3,4,5,6,7,8,9,10];
 //length = 9
